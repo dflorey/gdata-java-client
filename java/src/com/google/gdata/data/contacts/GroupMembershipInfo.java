@@ -128,7 +128,8 @@ public class GroupMembershipInfo extends ExtensionPoint {
   @Override
   protected void validate() {
     if (href == null) {
-      throwExceptionForMissingAttribute(HREF);
+      // Workaround for Google Bug!
+      // throwExceptionForMissingAttribute(HREF);
     }
   }
 
@@ -159,7 +160,8 @@ public class GroupMembershipInfo extends ExtensionPoint {
   protected void consumeAttributes(AttributeHelper helper) throws ParseException
       {
     deleted = helper.consumeBoolean(DELETED, false);
-    href = helper.consume(HREF, true);
+    // Workaround for Google Bug!
+    href = helper.consume(HREF, false);
   }
 
   @Override

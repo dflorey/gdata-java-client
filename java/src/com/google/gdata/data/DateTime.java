@@ -300,7 +300,8 @@ public class DateTime implements Comparable<Object> {
     Matcher m = str == null ? null : dateTimePattern.matcher(str);
 
     if (str == null || !m.matches()) {
-      throw new NumberFormatException("Invalid date/time format.");
+    	return new DateTime(0);
+      // throw new NumberFormatException("Invalid date/time format.");
     }
 
     /* Debugging help:
